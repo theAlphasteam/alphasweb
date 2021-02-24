@@ -94,6 +94,25 @@
         width: 100%;
         height: 100%;
     }
+
+    &--txt{
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        @each $color,
+        $value in $colorsListVar {
+            &-#{$color} {
+                background-color: $value;
+            }
+        }
+        @each $color,
+        $value in $colorsList-gradVar {
+            &-#{$color} {
+                background-image: $value;
+            }
+        }
+    }
 }
 
 .overlay{
@@ -234,6 +253,17 @@
     font-family: $header-font;
 
     @each $colorkey, $value in $colorListObj {
+        &--#{$colorkey}{
+            background: map-get($map: $value, $key: "main");
+            color: map-get($map: $value, $key: "alt");
+
+            *{
+                fill: map-get($map: $value, $key: "alt");
+            }
+        }
+    }
+
+    @each $colorkey, $value in $colorListObj-grad {
         &--#{$colorkey}{
             background: map-get($map: $value, $key: "main");
             color: map-get($map: $value, $key: "alt");
