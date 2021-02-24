@@ -34,7 +34,7 @@ export default {
         position: fixed;
         top: $defValEm * 2;
         width: 100%;
-        z-index: 3;
+        z-index: 6;
 
         &__wrapper{
             display: flex;
@@ -42,7 +42,7 @@ export default {
             justify-content: space-between;
             padding: $defValpx;
             // background: #fff;
-            box-shadow: 12px 20px 72px rgba(0, 0, 0, 0.08);
+            box-shadow: 12px 20px 72px var(--dark-trans);
             border-radius: 0 0 $defValpx $defValpx;
             border-radius: $defValpx;
             width: calc(100% - #{$defValEm * 2});
