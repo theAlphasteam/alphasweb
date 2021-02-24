@@ -1,31 +1,36 @@
 
 // colors
-$main: #3a8fe6;
-$main-trans: rgba(23, 201, 61, 0.12);
-$main-2: #1ad65d;
-$main-2-trans: rgba(26, 214, 92, 0.12);
-$main-3: #1fe581;
-$main-3-trans: rgba(31, 229, 130, 0.12);
-$dark: #18222b;
-$dark-trans: rgba(24, 34, 43, 0.06);
+$main: #2087ea;
+$main-trans: rgba(32, 136, 234, 0.12);
+$main-2: #4810ff;
+$main-2-trans: hsla(254, 100%, 53%, 0.12);
+$main-gradient: linear-gradient(135deg, $main, $main-2);
+$dark: #202229;
+$dark-trans: rgba(32, 34, 41, 0.08);
 $bg: #fff;
 $bg-trans: rgba(255, 255, 255, 0.12);
 
 $colorsList : (
     "main" : $main,
     "main-2" : $main-2,
-    "main-3" : $main-3,
     "dark" : $dark,
     "bg" : $bg,
+);
+
+$colorsList-grad : (
+    "main-gradient" : $main-gradient
 );
 
 $colorsListVar : (
     "main" : var(--main),
     "main-2" : var(--main-2),
-    "main-3" : var(--main-3),
     "dark" : var(--dark),
     "dark-trans" : var(--dark-trans),
     "bg" : var(--bg),
+);
+
+$colorsList-gradVar : (
+    "main-gradient" : var(--main-gradient)
 );
 
 $colorListObj: (
@@ -47,6 +52,13 @@ $colorListObj: (
     )
 );
 
+$colorListObj-grad: (
+    "main-gradient": (
+        "main":var(--main-gradient),
+        "alt": var(--bg)
+    )
+);
+
 
 
 // variables
@@ -61,7 +73,8 @@ $regular-font: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 $breakpoints : (
 	"widths" : (
 		420,
-		1120
+        1120,
+        1240
 	)
 );
 
@@ -69,7 +82,7 @@ $breakpoints : (
     --main: #{$main};
     --main-trans: #{$main-trans};
     --main-2: #{$main-2};
-    --main-3: #{$main-3};
+    --main-gradient: #{$main-gradient};
     --dark: #{$dark};
     --dark-trans: #{$dark-trans};
     --bg: #{$bg};
