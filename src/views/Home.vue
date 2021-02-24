@@ -11,7 +11,7 @@
         <div class="grid grid--7-5">
           <div class="wrapper">
             <!-- <span class="heading">Hello,</span> -->
-            <h1 class="heading heading--lg">
+            <h1 class="heading heading--lg bg--txt bg--txt-main-gradient">
               We're the team in love with all things web and design.
             </h1>
             <p class="txt--p txt-1 mb--2">
@@ -19,7 +19,7 @@
               placeat, culpa facilis odio velit aperiam sapiente natus!
             </p>
             <router-link to="/about">
-              <button class="cta cta--main">Get in touch</button>
+              <button class="cta cta--main-gradient">Get in touch</button>
             </router-link>
           </div>
           <div class="hero-media">
@@ -56,9 +56,12 @@ export default {
 .home {
   &__header {
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 
     h1{
-      line-height: $defValEm;
+      line-height: $defValEm * 1.15;
       color: var(--main);
       font-weight: 900;
     }
