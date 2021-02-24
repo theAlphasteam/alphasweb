@@ -1,14 +1,16 @@
 <template>
-  <header id="site-header" class="site-header glass glass--bg max-width--1120">
-      <figure class="site-logo" title="Alphasweb">
-          <router-link to="/" class="site-logo__img-w-txt">
-            <!-- <div class="site-logo__logo-cont">
-                <img src="../assets/batman.png" alt="Alphasweb Logo" title="Alphasweb logo" class="site-logo__logo">
-            </div> -->
-            <h1 class="site-logo__logo-txt">Webalphas</h1>
-          </router-link>
-      </figure>
-      <site-nav></site-nav>
+  <header id="site-header" class="site-header">
+      <div class="site-header__wrapper glass glass--bg max-width--1240">
+        <figure class="site-logo" title="Alphasweb">
+            <router-link to="/" class="site-logo__img-w-txt">
+                <!-- <div class="site-logo__logo-cont">
+                    <img src="../assets/batman.png" alt="Alphasweb Logo" title="Alphasweb logo" class="site-logo__logo">
+                </div> -->
+                <h1 class="site-logo__logo-txt">webalphas</h1>
+            </router-link>
+        </figure>
+        <site-nav></site-nav>
+      </div>
   </header>
 </template>
 
@@ -29,22 +31,28 @@ export default {
     @import '@/scss/_layout.scss';
 
     .site-header{
-        position: sticky;
+        position: fixed;
         top: $defValEm * 2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: $defValpx;
-        // background: #fff;
-        box-shadow: 12px 20px 72px rgba(0, 0, 0, 0.08);
-        border-radius: 0 0 $defValpx $defValpx;
-        border-radius: $defValpx;
-        width: calc(100% - #{$defValEm * 2});
+        width: 100%;
+        z-index: 3;
 
-        > *{
-            display: inline-block;
-            vertical-align: middle;
+        &__wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: $defValpx;
+            // background: #fff;
+            box-shadow: 12px 20px 72px rgba(0, 0, 0, 0.08);
+            border-radius: 0 0 $defValpx $defValpx;
+            border-radius: $defValpx;
+            width: calc(100% - #{$defValEm * 2});
+
+            > *{
+                display: inline-block;
+                vertical-align: middle;
+            }
         }
+
     }
 
     .site-logo{
