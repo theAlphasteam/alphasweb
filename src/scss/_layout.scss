@@ -252,6 +252,14 @@
     background: var(--bg);
     font-family: $header-font;
 
+    &:hover, &:focus{
+        transform: scale(1.12);
+    }
+
+    &:active{
+        transform: scale(0.98);
+    }
+
     @each $colorkey, $value in $colorListObj {
         &--#{$colorkey}{
             background: map-get($map: $value, $key: "main");
