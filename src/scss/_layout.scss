@@ -1,0 +1,246 @@
+// layout
+
+.max-width {
+	@each $var in map-get($map: $breakpoints, $key: 'widths') {
+		&--#{$var} {
+			max-width: $var + px;
+			margin: auto;
+		}
+	}
+}
+
+.pad {
+	@for $var from 0 through 8 {
+		&--#{$var} {
+			padding: $defValpx * $var;
+		}
+
+		&--x-#{$var} {
+			padding-left: $defValpx * $var;
+			padding-right: $defValpx * $var;
+		}
+
+		&--y-#{$var} {
+			padding-top: $defValpx * $var;
+			padding-bottom: $defValpx * $var;
+        }
+
+		&--#{$var}em {
+			padding: $defValEm * $var;
+		}
+
+		&--x-#{$var}em {
+			padding-left: $defValEm * $var;
+			padding-right: $defValEm * $var;
+		}
+
+		&--y-#{$var}em {
+			padding-top: $defValEm * $var;
+			padding-bottom: $defValEm * $var;
+		}
+	}
+}
+
+.m {
+	@for $var from 0 through 8 {
+		&--#{$var} {
+			 margin: $defValpx * $var;
+		}
+		&b--#{$var} {
+			 margin-bottom: $defValpx * $var;
+		}
+		&t--#{$var} {
+			 margin-top: $defValpx * $var;
+		}
+
+		&x--#{$var} {
+			 margin-left: $defValpx * $var;
+			 margin-right: $defValpx * $var;
+		}
+
+		&y--#{$var} {
+			 margin-top: $defValpx * $var;
+			 margin-bottom: $defValpx * $var;
+        }
+
+		&--#{$var}em {
+			 margin: $defValEm * $var;
+		}
+
+		&x--#{$var}em {
+			 margin-left: $defValEm * $var;
+			 margin-right: $defValEm * $var;
+		}
+
+		&y--#{$var}em {
+			 margin-top: $defValEm * $var;
+			 margin-bottom: $defValEm * $var;
+		}
+	}
+}
+
+.bg{
+    &--page{
+        position: fixed;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &__img-cont{
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.overlay{
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @each $color,
+    $value in $colorsList {
+        &--#{$color} {
+            &::after{
+                background: transparentize($value, $amount: 0.4);
+            }
+        }
+    }
+}
+
+.grid{
+    display: grid;
+    column-gap: $defValEm;
+
+    // 1 11
+    &--1-11{
+
+    }
+
+    // 2 10
+    &--1-5{
+
+    }
+    // 3 9
+    &--1-3{
+
+    }
+
+    // 4 8
+    &--1-2{
+
+    }
+
+    // 5 7
+    &--5-7{
+
+    }
+
+    // 6 6
+    &--1-1{
+
+    }
+
+    // 7 5
+    &--7-5{
+        grid-template-columns: 7fr 5fr;
+    }
+
+    // 8 4
+    &--2-1{
+
+    }
+
+    // 9 3
+    &--3-1{
+
+    }
+
+    // 10 2
+    &--5-1{
+
+    }
+
+    // 11 1
+    &--11-1{
+
+    }
+
+}
+
+.site-sect{
+    padding-left: $defValEm * 2;
+    padding-right: $defValEm * 2;
+    width: 100%;
+}
+
+
+// containers
+.img-cont {
+	width: 100%;
+
+	img {
+		width: 100%;
+	}
+}
+
+
+// components
+@mixin glass($color) {
+    backdrop-filter: blur(22px);
+    border: solid 3px transparentize($color, $amount: 0.68);
+    background-clip: padding-box!important;
+    background: transparentize($color, $amount: 0.56);
+    // box-shadow: 10px 10px 22px transparentize($color, $amount: 0.68);
+}
+
+.glass {
+    backdrop-filter: blur(22px);
+    border: solid 3px transparent;
+    background-clip: padding-box!important;
+
+    @each $color,
+    $value in $colorsList {
+        &--#{$color} {
+            background: transparentize($value, $amount: 0.56);
+            // box-shadow: 10px 10px 22px transparentize($value, $amount: 0.88);
+            border-color: transparentize($value, $amount: 0.88);
+        }
+    }
+
+    &--bg{
+        box-shadow: 10px 10px 22px var(--dark-trans);
+        color: var(--dark);
+    }
+}
+
+
+.cta{
+    padding: $defValpx $defValpx * 2;
+    border-radius: $defValpx / 1.5;
+    outline: none;
+    border: unset;
+    background: var(--bg);
+    font-family: $header-font;
+
+    @each $colorkey, $value in $colorListObj {
+        &--#{$colorkey}{
+            background: map-get($map: $value, $key: "main");
+            color: map-get($map: $value, $key: "alt");
+
+            *{
+                fill: map-get($map: $value, $key: "alt");
+            }
+        }
+    }
+}
