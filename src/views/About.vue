@@ -1,5 +1,10 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <div class="bg bg--page">
+      <div class="bg__img-cont overlay overlay--main img-cont">
+        <img src="@/assets/img/bg/a-pic-of-big-smallies.jpeg" alt="">
+      </div>
+    </div>
+    <h1>We can't wait to get in touch</h1>
   </div>
 </template>
