@@ -37,7 +37,7 @@ npm run build
 ## Contributions
 
 We really love and appreciate all your contributions!
-If it's a bug fix or feauture request, please go to [issues](https://github.com/theAlphasteam/alphasweb/issues) and browse for open issues before opening a new one.
+If it's a bug fix or feature request, please go to [issues](https://github.com/theAlphasteam/alphasweb/issues) and browse for open issues before opening a new one.
 It can be anything really ranging from a BIG feature request to a small typo fix *English can be hard sometimes*
 
 To contribute, feel free to follow the following steps:
