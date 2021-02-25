@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 
-
 // colors
 $main: #2087ea;
 $main-trans: rgba(32, 136, 234, 0.12);
 $main-2: #4810ff;
 $main-2-trans: hsla(254, 100%, 53%, 0.12);
 $main-gradient: linear-gradient(135deg, $main, $main-2);
+$main-gradient-trans: linear-gradient(135deg, $main-trans, $main-2-trans);
 $dark: #202229;
 $dark-trans: rgba(32, 34, 41, 0.08);
 $bg: #fff;
@@ -28,22 +28,51 @@ $colorsList-grad : (
     "main-gradient" : $main-gradient
 );
 
+$colorsList-trans : (
+    "main-trans" : $main-trans,
+    "main-2-trans" : $main-2-trans,
+    "dark-trans" : $dark-trans,
+    "bg-trans" : $bg-trans,
+    "bg-2-trans" : $bg-2-trans,
+);
+
+$colorsList-grad-trans : (
+    "main-gradient-trans" : $main-gradient-trans
+);
+
 $colorsListVar : (
     "main" : var(--main),
+    "main-trans" : var(--main-trans),
     "main-2" : var(--main-2),
+    "main-2-trans" : var(--main-2-trans),
     "dark" : var(--dark),
     "dark-trans" : var(--dark-trans),
     "bg" : var(--bg),
+    "bg-trans" : var(--bg-trans),
     "bg-2" : var(--bg-2),
+    "bg-2-trans" : var(--bg-2-trans),
 );
 
 $colorsList-gradVar : (
-    "main-gradient" : var(--main-gradient)
+    "main-gradient" : var(--main-gradient),
+    "main-gradient-trans" : var(--main-gradient-trans)
 );
 
 $colorListObj: (
     "main": (
         "main":var(--main),
+        "alt": var(--bg)
+    ),
+    "main-trans": (
+        "main":var(--main-trans),
+        "alt": var(--bg)
+    ),
+    "main-2": (
+        "main":var(--main-2),
+        "alt": var(--bg)
+    ),
+    "main-2-trans": (
+        "main":var(--main-2-trans),
         "alt": var(--bg)
     ),
     "dark": (
@@ -58,8 +87,16 @@ $colorListObj: (
         "main": var(--bg),
         "alt": var(--main)
     ),
+    "bg-trans": (
+        "main": var(--bg-trans),
+        "alt": var(--main)
+    ),
     "bg-2": (
         "main": var(--bg-2),
+        "alt": var(--main)
+    )
+    "bg-2-trans": (
+        "main": var(--bg-2-trans),
         "alt": var(--main)
     )
 );
@@ -67,6 +104,10 @@ $colorListObj: (
 $colorListObj-grad: (
     "main-gradient": (
         "main":var(--main-gradient),
+        "alt": var(--bg)
+    ),
+    "main-gradient-trans": (
+        "main":var(--main-gradient-trans),
         "alt": var(--bg)
     )
 );
@@ -77,9 +118,13 @@ $colorListObj-grad: (
 $defValpx: 10px;
 $defValEm: 1em;
 
+
+
 // type
 $header-font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 $regular-font: 'Lato', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
 
 // layout
 $breakpoints : (
@@ -90,15 +135,21 @@ $breakpoints : (
 	)
 );
 
+
+// root css variables
 :root {
     --main: #{$main};
     --main-trans: #{$main-trans};
     --main-2: #{$main-2};
+    --main-2-trans: #{$main-2-trans};
     --main-gradient: #{$main-gradient};
+    --main-gradient-trans: #{$main-gradient-trans};
     --dark: #{$dark};
     --dark-trans: #{$dark-trans};
     --bg: #{$bg};
+    --bg-trans: #{$bg-trans};
     --bg-2: #{$bg-2};
+    --bg-2-trans: #{$bg-2-trans};
 
     --defValpx: #{$defValpx};
     --defValEm: #{$defValEm};
