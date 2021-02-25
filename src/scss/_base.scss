@@ -1,12 +1,4 @@
-
-// font
-// @font-face {
-//     font-family: 'Techna Sans Regular';
-//     font-style: normal;
-//     font-weight: normal;
-//     src: local('Techna Sans Regular'), url('../fonts/TechnaSans-Regular.woff') format('woff');
-// }
-
+// apply to all elements in site
 *{
     margin: 0;
     padding: 0;
@@ -16,6 +8,7 @@
 }
 
 // base styles for page
+
 a{
     text-decoration: none;
     color: var(--main);
@@ -25,13 +18,12 @@ button{
     cursor: pointer;
 }
 
+
 //type
 
 @mixin heading($size) {
     font-family: $header-font;
-
 }
-
 
 .heading {
     font-family: $header-font;
