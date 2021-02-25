@@ -1,6 +1,6 @@
 <template>
   <site-header></site-header>
-  <router-view class="pad--y-2em" />
+  <router-view />
 </template>
 
 <script>
@@ -22,6 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   min-height: 100vh;
+  background: var(--bg-2);
 
   *{
     transition: all 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275);

@@ -1,7 +1,7 @@
 <template>
   <section class="about hero">
     <div class="bg bg--page">
-      <div class="bg__img-cont overlay overlay--main img-cont">
+      <div class="bg__img-cont overlay overlay--dark img-cont">
         <img src="@/assets/img/bg/a-pic-of-big-smallies.jpeg" alt="">
       </div>
     </div>

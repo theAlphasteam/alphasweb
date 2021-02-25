@@ -13,12 +13,15 @@ $dark: #202229;
 $dark-trans: rgba(32, 34, 41, 0.08);
 $bg: #fff;
 $bg-trans: rgba(255, 255, 255, 0.12);
+$bg-2: #ececec;
+$bg-2-trans: rgba(236, 236, 236, 0.12);
 
 $colorsList : (
     "main" : $main,
     "main-2" : $main-2,
     "dark" : $dark,
     "bg" : $bg,
+    "bg-2" : $bg-2,
 );
 
 $colorsList-grad : (
@@ -31,6 +34,7 @@ $colorsListVar : (
     "dark" : var(--dark),
     "dark-trans" : var(--dark-trans),
     "bg" : var(--bg),
+    "bg-2" : var(--bg-2),
 );
 
 $colorsList-gradVar : (
@@ -52,6 +56,10 @@ $colorListObj: (
     ),
     "bg": (
         "main": var(--bg),
+        "alt": var(--main)
+    ),
+    "bg-2": (
+        "main": var(--bg-2),
         "alt": var(--main)
     )
 );
@@ -90,6 +98,7 @@ $breakpoints : (
     --dark: #{$dark};
     --dark-trans: #{$dark-trans};
     --bg: #{$bg};
+    --bg-2: #{$bg-2};
 
     --defValpx: #{$defValpx};
     --defValEm: #{$defValEm};

@@ -7,7 +7,7 @@
         </div>
       </div> -->
 
-      <header class="site-sect__header home__hero hero pad--y-4em">
+      <header class="site-sect__header home__hero hero pad--y-6em">
         <div class="grid grid--7-5">
           <div class="wrapper">
             <!-- <span class="heading">Hello,</span> -->
