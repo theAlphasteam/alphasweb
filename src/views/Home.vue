@@ -9,19 +9,21 @@
 
       <header class="site-sect__header home__hero hero pad--y-6em">
         <div class="grid grid--7-5">
-          <div class="wrapper">
+          <div data-wa-trans="wrapper" class="wrapper">
             <!-- <span class="heading">Hello,</span> -->
-            <h1 class="heading heading--lg hero__caption bg--txt bg--txt-main-gradient">
+            <h1 data-wa-trans="child" class="heading heading--lg hero__caption bg--txt bg--txt-main-gradient">
               We're the team in love with all things web and design.
             </h1>
-            <p class="txt--p txt-1 mb--2">
+            <p data-wa-trans="child" class="txt--p txt-1 mb--2">
               Our job is to bring out the best part of the web for you, us and everyone else!
             </p>
-            <router-link to="/about">
-              <button class="cta cta--main-gradient">Get in touch</button>
-            </router-link>
+            <div data-wa-trans="child" class="action-cont">
+              <router-link to="/about">
+                <button class="cta cta--main-gradient">Get in touch</button>
+              </router-link>
+            </div>
           </div>
-          <div class="hero-media">
+          <div data-wa-trans="child" class="hero-media">
             <div class="hero-media__img img-cont _1">
               <img src="../assets/img/1024-editor.png" alt="A peeling orange" title="Code editor">
             </div>
