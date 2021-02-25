@@ -7,16 +7,15 @@
         </div>
       </div> -->
 
-      <header class="site-sect__header home__header pad--y-4em">
+      <header class="site-sect__header home__hero hero pad--y-4em">
         <div class="grid grid--7-5">
           <div class="wrapper">
             <!-- <span class="heading">Hello,</span> -->
-            <h1 class="heading heading--lg bg--txt bg--txt-main-gradient">
+            <h1 class="heading heading--lg hero__caption bg--txt bg--txt-main-gradient">
               We're the team in love with all things web and design.
             </h1>
             <p class="txt--p txt-1 mb--2">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt
-              placeat, culpa facilis odio velit aperiam sapiente natus!
+              Our job is to bring out the best part of the web for you, us and everyone else!
             </p>
             <router-link to="/about">
               <button class="cta cta--main-gradient">Get in touch</button>
@@ -54,17 +53,8 @@ export default {
   @import '../scss/_utils.scss';
 
 .home {
-  &__header {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+  &__hero {
 
-    h1{
-      line-height: $defValEm * 1.15;
-      color: var(--main);
-      font-weight: 900;
-    }
   }
 }
 
@@ -79,13 +69,33 @@ export default {
     position: absolute;
     top: - $defValEm;
     left: 0;
+    animation: float 5s ease-in-out alternate-reverse infinite;
 
+    @for $var from 0 to 3 {
+      &:nth-child(#{$var}){
+        animation-duration: 5s + $var / 2;
+      }
+    }
 
     &._2{
       top: 40%;
       left: 60%;
       width: 60%;
     }
+  }
+}
+
+@keyframes float {
+  0%{
+    transform: translateY(0);
+  }
+
+  50%{
+    transform: translateY(10%);
+  }
+
+  100%{
+    transform: translateY(-10%);
   }
 }
 </style>
