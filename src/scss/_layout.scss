@@ -189,6 +189,20 @@
   width: 100%;
 }
 
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    &__caption{
+      line-height: $defValEm * 1.15;
+      color: var(--main);
+      font-weight: 900;
+    }
+
+}
+
 // containers
 .img-cont {
   width: 100%;
@@ -234,8 +248,7 @@
   background: var(--bg);
   font-family: $header-font;
 
-  &:hover,
-  &:focus {
+  &:hover{
     transform: scale(1.12);
   }
 
