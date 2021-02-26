@@ -14,6 +14,4 @@ export default {
 
 <style lang="scss" scoped>
     @import '@/scss/_utils.scss';
-    @import '@/scss/_layout.scss';
-
 </style>

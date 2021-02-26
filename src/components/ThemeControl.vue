@@ -65,6 +65,7 @@ export default {
   },
   mounted() {
     this.currentTheme = JSON.parse(this.checkStorage("theme", this.currentTheme));
+
     this.currentTheme.mode.active = !this.currentTheme.mode.active;
     this.changeTheme({mode: this.currentTheme.mode.name});
   },
