@@ -2,7 +2,7 @@
   <section class="about hero">
     <div class="bg bg--page">
       <div data-wa-trans="wrapper" class="bg__img-cont overlay overlay--dark img-cont">
-        <img data-wa-trans="child" src="@/assets/img/bg/a-pic-of-big-smallies.jpeg" alt="">
+        <img data-wa-trans="child" src="@/assets/img/bg/a-pic-of-csc-ss.jpeg" alt="">
       </div>
     </div>
     <header data-wa-trans="wrapper" class="about__hero hero">
