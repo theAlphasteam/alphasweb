@@ -1,3 +1,38 @@
+// Themes
+html{
+  &.dark{
+    --dark: #{$bg};
+    --dark-trans: #{$dark-trans};
+    --dark-trans-blur: #{$bg-trans-blur};
+
+    --bg: #{$bg};
+    --bg-trans: #{$bg-trans};
+    --bg-trans-blur: #{$bg-trans-blur};
+
+    --bg-2: #{$dark};
+    --bg-2-trans: #{$dark-trans};
+    --bg-2-trans-blur: #{$dark-trans-blur};
+
+    --defValpx: #{$defValpx};
+    --defValEm: #{$defValEm};
+  }
+
+  // &.light{
+  //   --dark: #{$dark};
+  //   --dark-trans: #{$dark-trans};
+  //   --dark-trans-blur: #{$dark-trans-blur};
+
+  //   --bg: #{$bg};
+  //   --bg-trans: #{$bg-trans};
+  //   --bg-trans-blur: #{$bg-trans-blur};
+
+  //   --bg-2: #{$bg-2};
+  //   --bg-2-trans: #{$bg-2-trans};
+  //   --bg-2-trans-blur: #{$bg-2-trans-blur};
+  // }
+}
+
+
 // layout utility classes
 
 .grid {
@@ -244,13 +279,29 @@
   border: solid 3px transparent;
   background-clip: padding-box !important;
 
-  @each $color, $value in $colorsList {
-    &--#{$color} {
-      background: transparentize($value, $amount: 0.56);
-      // box-shadow: 10px 10px 22px transparentize($value, $amount: 0.88);
-      border-color: transparentize($value, $amount: 0.88);
+  // @each $color, $value in $colorsList-transVar {
+  //   &--#{$color} {
+  //     background: $value;
+  //     // box-shadow: 10px 10px 22px transparentize($value, $amount: 0.88);
+  //     border-color: $value;
+  //   }
+  // }
+
+  // @each $color, $value in $colorsList {
+  //   &--#{$color} {
+  //     background: transparentize($value, $amount: 0.56);
+  //     // box-shadow: 10px 10px 22px transparentize($value, $amount: 0.88);
+  //     border-color: transparentize($value, $amount: 0.88);
+  //   }
+  // }
+
+  @each $colorkey, $value in $colorListObj-transVar {
+    &--#{$colorkey} {
+      background: map-get($map: $value, $key: "bg");
+      border-color: map-get($map: $value, $key: "stroke");
     }
   }
+
 
   &--bg {
     box-shadow: 10px 10px 22px var(--dark-trans);

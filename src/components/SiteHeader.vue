@@ -3,10 +3,10 @@
       <div class="site-header__wrapper glass glass--bg max-width--1240">
         <figure class="site-logo" title="Alphasweb">
             <router-link to="/" class="site-logo__img-w-txt">
-                <!-- <div class="site-logo__logo-cont">
+                <div class="site-logo__logo-cont">
                     <img src="../assets/batman.png" alt="Alphasweb Logo" title="Alphasweb logo" class="site-logo__logo">
-                </div> -->
-                <h1 class="site-logo__logo-txt">webalphas</h1>
+                </div>
+                <h1 class="site-logo__logo-txt">alphasweb</h1>
             </router-link>
         </figure>
         <site-nav></site-nav>
@@ -43,9 +43,8 @@ export default {
             padding: $defValpx;
             // background: #fff;
             box-shadow: 12px 20px 72px var(--dark-trans);
-            border-radius: 0 0 $defValpx $defValpx;
             border-radius: $defValpx;
-            width: calc(100% - #{$defValEm * 2});
+            width: calc(100% - #{$defValEm * 6});
 
             > *{
                 display: inline-block;
@@ -75,7 +74,7 @@ export default {
         }
 
         &__logo-txt{
-            padding-left: $defValpx;
+            // padding-left: $defValpx;
             color: var(--dark);
             // text-transform: capitalize;
             font-family: $header-font;
