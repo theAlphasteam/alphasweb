@@ -1,5 +1,6 @@
 <template>
   <site-header></site-header>
+  <theme-control v-on:change-theme="updateTheme"></theme-control>
   <transition>
     <router-view />
   </transition>
@@ -7,11 +8,36 @@
 
 <script>
 import SiteHeader from "./components/SiteHeader.vue";
+import ThemeControl from './components/ThemeControl.vue';
+
+let pageHtml = document.querySelector("html")
 
 export default {
   components: {
     SiteHeader,
+    ThemeControl,
   },
+
+  data(){
+    return {
+      pageHtml,
+    }
+  },
+
+  methods: {
+    updateTheme(currentTheme){
+      let {mode, theme} = currentTheme;
+      console.log(mode, theme)
+      mode.active ? pageHtml.classList.add(mode.name) : pageHtml.classList.remove(mode.name);
+
+    }
+
+  },
+
+  mounted(){
+    this.pageHtml = document.querySelector("html");
+    console.log(pageHtml);
+  }
 };
 </script>
 
