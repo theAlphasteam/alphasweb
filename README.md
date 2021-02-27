@@ -32,6 +32,15 @@ npm run serve
 
 # Build for production with asset optimization and minification
 npm run build
+
+
+# To preview the production build locally you need to serve the dist/ folder over a HTTP server (More info here)[https://cli.vuejs.org/guide/deployment.html#previewing-locally]
+# You can use (serve)[https://github.com/zeit/serve]
+npm install -g serve
+
+# -s flag means serve it in Single-Page Application mode
+# which deals with the routing problem below
+serve -s dist
 ```
 
 ## Contributions
@@ -43,7 +52,7 @@ It can be anything really ranging from a BIG feature request to a small typo fix
 To contribute, feel free to follow the following steps:
 
 - Fork the repository ([Here's the guide](https://help.github.com/articles/fork-a-repo/))
-- Clone to you machine
+- Clone to your machine
 
     ```bash
     git clone https://github.com/theAlphasteam/alphasweb.git
