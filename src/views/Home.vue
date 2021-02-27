@@ -28,7 +28,7 @@
               <img src="../assets/img/1024-editor.png" alt="A peeling orange" title="Code editor">
             </div>
             <div class="hero-media__img img-cont _2">
-              <img src="../assets/batman.png" alt="The batman" title="The batman">
+              <img src="../assets/img/batman.png" alt="The batman" title="The batman">
             </div>
           </div>
         </div>
