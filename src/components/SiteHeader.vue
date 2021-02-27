@@ -4,7 +4,7 @@
         <figure class="site-logo" title="Alphasweb">
             <router-link to="/" class="site-logo__img-w-txt">
                 <div class="site-logo__logo-cont">
-                    <img src="../assets/batman.png" alt="Alphasweb Logo" title="Alphasweb logo" class="site-logo__logo">
+                    <img src="../assets/img/logo/main-logo@2x.png" alt="Alphasweb Logo" title="Alphasweb logo" class="site-logo__logo">
                 </div>
                 <h1 class="site-logo__logo-txt">alphasweb</h1>
             </router-link>
