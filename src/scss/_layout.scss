@@ -12,10 +12,20 @@ html{
     --bg-2: #{$dark};
     --bg-2-trans: #{$dark-trans};
     --bg-2-trans-blur: #{$dark-trans-blur};
-
-    --defValpx: #{$defValpx};
-    --defValEm: #{$defValEm};
   }
+
+  &.purple{
+    --main: #{$main-2};
+    --main-trans: #{$main-2-trans};
+    --main-trans-blur: #{$main-2-trans-blur};
+    --main-2: #{$main};
+    --main-2-trans: #{$main-trans};
+    --main-2-trans-blur: #{$main-trans-blur};
+
+    --main-gradient: #{$main-2};
+    --main-gradient-trans: #{$main-2-trans};
+    --main-gradient-trans-blur: #{$main-2-trans-blur};
+    }
 
   // &.light{
   //   --dark: #{$dark};
@@ -203,6 +213,7 @@ html{
     @each $color, $value in $colorsList-gradVar {
       &-#{$color} {
         background-image: $value;
+        background-color: $value;
       }
     }
   }

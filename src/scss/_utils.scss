@@ -21,9 +21,10 @@ $breakpoints: (
   ),
 );
 
-
-
 // colors
+$blue: #2087ea;
+$purple: #4810ff;
+
 $main: #2087ea;
 $main-trans: rgba(32, 136, 234, 0.12);
 $main-trans-blur: rgba(32, 136, 234, 0.32);
@@ -51,6 +52,9 @@ $bg-2-trans-blur: rgba(236, 236, 236, 0.32);
 
 // root css variables
 :root {
+  --blue: #{$blue};
+  --purple: #{$purple};
+
   --main: #{$main};
   --main-trans: #{$main-trans};
   --main-trans-blur: #{$main-trans-blur};
@@ -60,6 +64,8 @@ $bg-2-trans-blur: rgba(236, 236, 236, 0.32);
   --main-gradient: #{$main-gradient};
   --main-gradient-trans: #{$main-gradient-trans};
   --main-gradient-trans-blur: #{$main-gradient-trans-blur};
+
+
   --dark: #{$dark};
   --dark-trans: #{$dark-trans};
   --dark-trans-blur: #{$dark-trans-blur};

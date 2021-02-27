@@ -8,9 +8,9 @@
 
 <script>
 import SiteHeader from "./components/SiteHeader.vue";
-import ThemeControl from './components/ThemeControl.vue';
+import ThemeControl from "./components/ThemeControl.vue";
 
-let pageHtml = document.querySelector("html")
+let pageHtml = document.querySelector("html");
 
 export default {
   components: {
@@ -18,26 +18,40 @@ export default {
     ThemeControl,
   },
 
-  data(){
+  data() {
     return {
       pageHtml,
-    }
+    };
   },
 
   methods: {
-    updateTheme(currentTheme){
-      let {mode, theme} = currentTheme;
-      console.log(mode, theme)
-      mode.active ? pageHtml.classList.add(mode.name) : pageHtml.classList.remove(mode.name);
+    updateTheme({ currentTheme, themes }) {
+      let { mode, theme } = currentTheme;
+      console.log(mode, theme);
+      mode.active
+        ? pageHtml.classList.add(mode.name)
+        : pageHtml.classList.remove(mode.name);
 
-    }
+      console.log(themes)
 
+
+      themes.forEach(x => {
+        pageHtml.classList.remove(x.name);
+      });
+      let activeTheme = themes.find(x => {
+        console.log(x.name, theme.name)
+        return x.name === theme.name
+      });
+      pageHtml.classList.add(activeTheme.name)
+
+      console.log(activeTheme);
+    },
   },
 
-  mounted(){
+  mounted() {
     this.pageHtml = document.querySelector("html");
     console.log(pageHtml);
-  }
+  },
 };
 </script>
 
@@ -60,17 +74,14 @@ export default {
 
 // wa-trans style rule
 [data-wa-trans="wrapper"] {
-
   // for loop to generate multiple :nth-child(n) rules
   @for $n from 0 through 5 {
-
     // apply a transition delay based on the value of $n
     // this applies to children of data-wa-trans="wrapper" with the attribute data-wa-trans="child"
     // <element data-wa-trans="wrapper">
     //  <element data-wa-trans="child" :nth-child>   << applies to this element
     //  <element :nth-child>   << does not apply to this element
     [data-wa-trans="child"]:nth-child(#{$n}) {
-
       // i.e if n=0
       // transition-duration: 0.32s + 0/4 === 0.32s
       // transition-duration: 0.32s + 1/4 === 0.32s + 0.25 === 0.57s
