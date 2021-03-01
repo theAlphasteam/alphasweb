@@ -5,9 +5,9 @@ html{
     --dark-trans: #{$dark-trans};
     --dark-trans-blur: #{$bg-trans-blur};
 
-    --bg: #{$bg};
-    --bg-trans: #{$bg-trans};
-    --bg-trans-blur: #{$bg-trans-blur};
+    --bg: #{$dark-2};
+    --bg-trans: #{$dark-2-trans};
+    --bg-trans-blur: #{$dark-2-trans-blur};
 
     --bg-2: #{$dark};
     --bg-2-trans: #{$dark-trans};

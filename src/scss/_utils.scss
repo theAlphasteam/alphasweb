@@ -37,9 +37,13 @@ $main-gradient: linear-gradient(135deg, $main, $main-2);
 $main-gradient-trans: linear-gradient(135deg, $main-trans, $main-2-trans);
 $main-gradient-trans-blur: linear-gradient(135deg, $main-trans, $main-2-trans);
 
-$dark: #202229;
-$dark-trans: rgba(32, 34, 41, 0.12);
-$dark-trans-blur: rgba(32, 34, 41, 0.26);
+$dark: hsl(227, 12%, 14%);
+$dark-trans: hsla(227, 12%, 14%, 0.122);
+$dark-trans-blur: hsla(227, 12%, 14%, 0.26);
+
+$dark-2: hsl(227, 14%, 22%);
+$dark-2-trans: hsla(227, 14%, 22%, 0.196);
+$dark-2-trans-blur: hsla(227, 14%, 22%, 0.36);
 
 $bg: #fff;
 $bg-trans: rgba(255, 255, 255, 0.12);
@@ -69,6 +73,9 @@ $bg-2-trans-blur: rgba(236, 236, 236, 0.32);
   --dark: #{$dark};
   --dark-trans: #{$dark-trans};
   --dark-trans-blur: #{$dark-trans-blur};
+  --dark-2: #{$dark-2};
+  --dark-2-trans: #{$dark-2-trans};
+  --dark-2-trans-blur: #{$dark-2-trans-blur};
   --bg: #{$bg};
   --bg-trans: #{$bg-trans};
   --bg-trans-blur: #{$bg-trans-blur};
@@ -99,6 +106,7 @@ $colorsList: (
   "main": $main,
   "main-2": $main-2,
   "dark": $dark,
+  "dark-2": $dark-2,
   "bg": $bg,
   "bg-2": $bg-2,
 );
@@ -114,6 +122,8 @@ $colorsList-trans: (
   "main-2-trans-blur": $main-2-trans-blur,
   "dark-trans": $dark-trans,
   "dark-trans-blur": $dark-trans-blur,
+  "dark-2-trans": $dark-2-trans,
+  "dark-2-trans-blur": $dark-2-trans-blur,
   "bg-trans": $bg-trans,
   "bg-trans-blur": $bg-trans-blur,
   "bg-2-trans": $bg-2-trans,
@@ -135,6 +145,9 @@ $colorsListVar: (
   "dark": var(--dark),
   "dark-trans": var(--dark-trans),
   "dark-trans-blur": var(--dark-trans-blur),
+  "dark-2": var(--dark-2),
+  "dark-2-trans": var(--dark-2-trans),
+  "dark-2-trans-blur": var(--dark-2-trans-blur),
   "bg": var(--bg),
   "bg-trans": var(--bg-trans),
   "bg-trans-blur": var(--bg-trans-blur),
@@ -150,6 +163,8 @@ $colorsList-transVar: (
   "main-2-trans-blur": var(--main-2-trans-blur),
   "dark-trans": var(--dark-trans),
   "dark-trans-blur": var(--dark-trans-blur),
+  "dark-2-trans": var(--dark-2-trans),
+  "dark-2-trans-blur": var(--dark-2-trans-blur),
   "bg-trans": var(--bg-trans),
   "bg-trans-blur": var(--bg-trans-blur),
   "bg-2-trans": var(--bg-2-trans),
@@ -181,6 +196,10 @@ $colorListObj: (
   ),
   "dark": (
     "main": var(--dark),
+    "alt": var(--bg),
+  ),
+  "dark-2": (
+    "main": var(--dark-2),
     "alt": var(--bg),
   ),
   "dark-trans": (
@@ -232,6 +251,10 @@ $colorListObj-transVar: (
   "dark": (
     "bg": var(--dark-trans-blur),
     "stroke": var(--dark-trans),
+  ),
+  "dark-2": (
+    "bg": var(--dark-2-trans-blur),
+    "stroke": var(--dark-2-trans),
   ),
   "bg": (
     "bg": var(--bg-trans-blur),
