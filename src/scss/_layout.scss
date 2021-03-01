@@ -47,51 +47,63 @@ html{
 
 .grid {
     display: grid;
-    column-gap: $defValEm;
+    gap: $defValEm;
 
-    // 1 11
-    &--1-11 {
+    &__first{
+      grid-row-start: 1;
     }
 
-    // 2 10
-    &--1-5 {
-    }
-    // 3 9
-    &--1-3 {
-    }
+    @media screen and (min-width: 768px){
 
-    // 4 8
-    &--1-2 {
-    }
+      &__first{
+        grid-row-start: unset;
+      }
 
-    // 5 7
-    &--5-7 {
-    }
+      // 1 11
+      &--1-11 {
+      }
 
-    // 6 6
-    &--1-1 {
-      grid-template-columns: 1fr 1fr;
-    }
+      // 2 10
+      &--1-5 {
+      }
+      // 3 9
+      &--1-3 {
+      }
 
-    // 7 5
-    &--7-5 {
-      grid-template-columns: 7fr 5fr;
-    }
+      // 4 8
+      &--1-2 {
+      }
 
-    // 8 4
-    &--2-1 {
-    }
+      // 5 7
+      &--5-7 {
+      }
 
-    // 9 3
-    &--3-1 {
-    }
+      // 6 6
+      &--1-1 {
+        grid-template-columns: 1fr 1fr;
+      }
 
-    // 10 2
-    &--5-1 {
-    }
+      // 7 5
+      &--7-5 {
+        grid-template-columns: 7fr 5fr;
+      }
 
-    // 11 1
-    &--11-1 {
+      // 8 4
+      &--2-1 {
+      }
+
+      // 9 3
+      &--3-1 {
+      }
+
+      // 10 2
+      &--5-1 {
+      }
+
+      // 11 1
+      &--11-1 {
+      }
+
     }
 }
 
@@ -345,6 +357,31 @@ html{
           color: map-get($map: $value, $key: "alt");
 
           * {
+            color: map-get($map: $value, $key: "alt");
+            fill: map-get($map: $value, $key: "alt");
+          }
+        }
+      }
+
+      background: map-get($map: $value, $key: "main");
+      color: map-get($map: $value, $key: "alt");
+
+      * {
+        fill: map-get($map: $value, $key: "alt");
+        color: map-get($map: $value, $key: "alt");
+      }
+    }
+  }
+
+  @each $colorkey, $value in $colorListObj-grad {
+    &--#{$colorkey} {
+      &-hover{
+        &:hover{
+          background: map-get($map: $value, $key: "main");
+          color: map-get($map: $value, $key: "alt");
+
+          * {
+            color: map-get($map: $value, $key: "alt");
             fill: map-get($map: $value, $key: "alt");
           }
         }
@@ -358,26 +395,25 @@ html{
       }
     }
   }
+}
 
-  @each $colorkey, $value in $colorListObj-grad {
-    &--#{$colorkey} {
-      &-hover{
-        &:hover{
-          background: map-get($map: $value, $key: "main");
-          color: map-get($map: $value, $key: "alt");
+.icon{
+  svg{
+    *{
+      fill: var(--dark);
+    }
+  }
+  &--sm{
+    svg{
+      width: 16px;
+      height: 16px;
+    }
+  }
 
-          * {
-            fill: map-get($map: $value, $key: "alt");
-          }
-        }
-      }
-
-      background: map-get($map: $value, $key: "main");
-      color: map-get($map: $value, $key: "alt");
-
-      * {
-        fill: map-get($map: $value, $key: "alt");
-      }
+  &--md{
+    svg{
+      width: 32px;
+      height: 32px;
     }
   }
 }
