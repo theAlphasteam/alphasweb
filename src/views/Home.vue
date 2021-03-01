@@ -18,7 +18,7 @@
               Our job is to bring out the best part of the web for you, us and everyone else!
             </p>
             <div data-wa-trans="child" class="action-cont">
-              <router-link to="/about">
+              <router-link to="/contact">
                 <button class="cta cta--main-gradient">Get in touch</button>
               </router-link>
             </div>

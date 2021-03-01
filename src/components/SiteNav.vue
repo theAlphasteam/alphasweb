@@ -1,6 +1,6 @@
 <template>
   <nav id="site-nav">
-    <router-link to="/about">
+    <router-link to="/contact">
       <button class="cta cta--main-gradient">Contact Us</button>
     </router-link>
   </nav>
