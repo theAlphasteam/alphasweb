@@ -23,7 +23,7 @@
               </router-link>
             </div>
           </div>
-          <div data-wa-trans="child" class="hero-media">
+          <div data-wa-trans="child" class="hero-media grid__first max-width--420">
             <div class="hero-media__img img-cont _1">
               <img src="../assets/img/1024-editor.png" alt="A peeling orange" title="Code editor">
             </div>
@@ -66,6 +66,8 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 420px;
+  width: 100%;
 
   &__img{
     position: absolute;

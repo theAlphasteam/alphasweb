@@ -9,6 +9,10 @@
 
 // base styles for page
 
+body{
+    overflow-x: hidden;
+}
+
 a{
     text-decoration: none;
     color: var(--main);
@@ -31,6 +35,7 @@ li{
 
 .heading {
     font-family: $header-font;
+    font-weight: 900;
 
     & + p{
         margin-top: $defValpx;

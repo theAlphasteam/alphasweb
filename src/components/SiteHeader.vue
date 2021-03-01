@@ -40,6 +40,10 @@ export default {
   width: 100%;
   z-index: 6;
 
+  @supports(position: sticky){
+    position: sticky;
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;
