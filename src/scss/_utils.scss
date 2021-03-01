@@ -24,6 +24,7 @@ $breakpoints: (
 // colors
 $blue: #2087ea;
 $purple: #4810ff;
+$txt: #fff;
 
 $main: #2087ea;
 $main-trans: rgba(32, 136, 234, 0.12);
@@ -37,7 +38,7 @@ $main-gradient: linear-gradient(135deg, $main, $main-2);
 $main-gradient-trans: linear-gradient(135deg, $main-trans, $main-2-trans);
 $main-gradient-trans-blur: linear-gradient(135deg, $main-trans, $main-2-trans);
 
-$dark: hsl(227, 12%, 14%);
+$dark: #1f2128;
 $dark-trans: hsla(227, 12%, 14%, 0.122);
 $dark-trans-blur: hsla(227, 12%, 14%, 0.26);
 
@@ -58,6 +59,7 @@ $bg-2-trans-blur: rgba(236, 236, 236, 0.32);
 :root {
   --blue: #{$blue};
   --purple: #{$purple};
+  --txt: #{$txt};
 
   --main: #{$main};
   --main-trans: #{$main-trans};
@@ -180,7 +182,7 @@ $colorsList-gradVar: (
 $colorListObj: (
   "main": (
     "main": var(--main),
-    "alt": var(--bg),
+    "alt": var(--txt),
   ),
   "main-trans": (
     "main": var(--main-trans),
@@ -188,7 +190,7 @@ $colorListObj: (
   ),
   "main-2": (
     "main": var(--main-2),
-    "alt": var(--bg),
+    "alt": var(--txt),
   ),
   "main-2-trans": (
     "main": var(--main-2-trans),
@@ -227,7 +229,7 @@ $colorListObj: (
 $colorListObj-grad: (
   "main-gradient": (
     "main": var(--main-gradient),
-    "alt": var(--bg),
+    "alt": var(--txt),
   ),
   "main-gradient-trans": (
     "main": var(--main-gradient-trans),

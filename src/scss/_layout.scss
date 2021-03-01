@@ -325,8 +325,9 @@ html{
   border-radius: $defValpx / 1.5;
   outline: none;
   border: unset;
-  background: var(--bg);
+  // background: var(--bg);
   font-family: $header-font;
+  cursor: pointer;
 
   &:hover{
     transform: scale(1.12);
@@ -338,6 +339,17 @@ html{
 
   @each $colorkey, $value in $colorListObj {
     &--#{$colorkey} {
+      &-hover{
+        &:hover{
+          background: map-get($map: $value, $key: "main");
+          color: map-get($map: $value, $key: "alt");
+
+          * {
+            fill: map-get($map: $value, $key: "alt");
+          }
+        }
+      }
+
       background: map-get($map: $value, $key: "main");
       color: map-get($map: $value, $key: "alt");
 
@@ -349,6 +361,17 @@ html{
 
   @each $colorkey, $value in $colorListObj-grad {
     &--#{$colorkey} {
+      &-hover{
+        &:hover{
+          background: map-get($map: $value, $key: "main");
+          color: map-get($map: $value, $key: "alt");
+
+          * {
+            fill: map-get($map: $value, $key: "alt");
+          }
+        }
+      }
+
       background: map-get($map: $value, $key: "main");
       color: map-get($map: $value, $key: "alt");
 

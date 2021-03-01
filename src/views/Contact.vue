@@ -1,5 +1,5 @@
 <template>
-  <section class="about hero site-sect">
+  <section class="about hero site-sect pad--y-7em">
     <div class="site-sect__wrapper max-width--1120">
       <div class="main-cont">
         <div class="form-cont">
@@ -7,27 +7,27 @@
             <h1 class="txt--h txt-4 heading">Get in touch!</h1>
             <p>Contact us for a quote, help out to join the team</p>
             <ul class="items my--2">
-              <li class="items__li pad--2">183 street kingsway</li>
-              <li class="items__li pad--2">+234808080808</li>
-              <li class="items__li pad--2">miracleio@gmail.com</li>
+              <li class="items__li cta cta--main-hover">183 street kingsway</li>
+              <li class="items__li cta cta--main-hover">+234808080808</li>
+              <li class="items__li cta cta--main-hover">miracleio@gmail.com</li>
             </ul>
           </header>
           <div class="form glass glass--bg pad--2">
             <form>
-              <h4 class="mb--3">Contact Form</h4>
+              <h1 class="mb--3 txt--h">Contact Form</h1>
               <div class="form__wrapper grid grid--1-1">
                 <div class="form__inputs-cont">
                   <label for="name">Your Name</label>
                   <div class="form__input-item">
-                    <input id="name" type="text" placeholder="hello" />
+                    <input id="name" type="text" placeholder="John Moe" />
                   </div>
                   <label for="Mail">Mail</label>
                   <div class="form__input-item">
-                    <input id="Mail" type="text" placeholder="hello" />
+                    <input id="Mail" type="email" placeholder="johnmoe@gmail.com" />
                   </div>
                   <label for="Phone">Phone</label>
                   <div class="form__input-item">
-                    <input id="Phone" type="text" placeholder="hello" />
+                    <input id="Phone" type="text" placeholder="+234808080808" />
                   </div>
                 </div>
                 <div class="form__message-cont">
@@ -75,7 +75,6 @@
 }
 
 .main-cont {
-  height: 800px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -106,12 +105,7 @@
 
   &__li {
     list-style-type: none;
-    border-radius: $defValpx;
-  }
-
-  &__li:hover {
-    background: var(--main-2);
-    color: var(--bg);
+    border-radius: $defValpx / 2;
   }
 }
 
@@ -132,7 +126,7 @@
     padding: $defValpx;
     border-radius: $defValpx/2;
     // background: var(--bg);
-    border: 2px solid var(--dark-trans);
+    border: 2px solid var(--dark-trans-blur);
     margin-bottom: $defValpx * 1.5;
 
     input {
@@ -150,6 +144,7 @@
       outline: none;
       border-radius: $defValpx;
       resize: none;
+      background: var(--bg);
     }
   }
   &__action-cont{
