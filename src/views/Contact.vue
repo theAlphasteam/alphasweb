@@ -61,7 +61,7 @@
             </ul>
           </header>
           <div class="form glass glass--bg pad--2">
-            <form name="contact-form" action="POST" netlify>
+            <form name="contact-form" method="POST" netlify>
               <h1 class="mb--3 txt--h">Contact Form</h1>
               <div class="form__wrapper grid grid--1-1">
                 <div class="form__inputs-cont">
