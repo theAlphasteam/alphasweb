@@ -212,6 +212,17 @@ html{
     }
   }
 
+  @each $colorkey, $value in $colorListObj {
+    &--#{$colorkey} {
+      background: map-get($map: $value, $key: "main");
+
+      *{
+        color: map-get($map: $value, $key: "alt");
+        fill: map-get($map: $value, $key: "alt");
+      }
+    }
+  }
+
   &--txt {
     background-clip: text;
     -webkit-background-clip: text;
