@@ -68,8 +68,8 @@
             </ul>
           </header>
           <div class="form glass glass--bg pad--2">
-            <form name="main-form" action="POST" data-netlify="true" >
-              <input type="hidden" name="form-name" value="main-form">
+            <form name="main-form" action="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="main-form" />
               <h1 class="mb--3 txt--h">Contact Form</h1>
               <div class="form__wrapper grid grid--1-1">
                 <div class="form__inputs-cont">
@@ -112,33 +112,32 @@
               <div class="form__wrapper mt--1">
                 <div class="form__inputs-cont check-group">
                   <div class="form__input-item form__check-item">
-                    <input type="checkbox" name="service" id="web-design">
+                    <input type="checkbox" name="service" id="web-design" />
                     <label for="web-design" class="form__check-label">
-                      <span>
-                        Web Design
-                      </span>
+                      <span> Web Design </span>
                     </label>
                   </div>
                   <div class="form__input-item form__check-item">
-                    <input type="checkbox" name="service" id="web-dev">
+                    <input type="checkbox" name="service" id="web-dev" />
                     <label for="web-dev" class="form__check-label">
-                      <span>
-                        Web Developement
-                      </span>
+                      <span> Web Developement </span>
                     </label>
                   </div>
                   <div class="form__input-item form__check-item">
-                    <input type="checkbox" name="service" id="logo-design">
+                    <input type="checkbox" name="service" id="logo-design" />
                     <label for="logo-design" class="form__check-label">
-                      <span>
-                        Logo Design
-                      </span>
+                      <span> Logo Design </span>
                     </label>
                   </div>
                 </div>
               </div>
               <div class="form__action-cont mt--2">
-                <button class="cta cta--main-gradient" @click.prevent="submitForm" >Send a Message</button>
+                <button
+                  class="cta cta--main-gradient"
+                  @click.prevent="submitForm"
+                >
+                  Send a Message
+                </button>
               </div>
             </form>
           </div>
@@ -150,17 +149,17 @@
 
 <script>
 export default {
-  data(){
-    return{
-      ContactFormData:{}
-    }
+  data() {
+    return {
+      ContactFormData: {},
+    };
   },
-  methods:{
-    submitForm(e){
-      console.log(e)
-    }
-  }
-}
+  methods: {
+    submitForm(e) {
+      console.log(e);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -244,8 +243,8 @@ export default {
   &__wrapper {
   }
 
-  &__inputs-cont{
-    &.check-group{
+  &__inputs-cont {
+    &.check-group {
       display: flex;
       gap: $defValpx;
     }
@@ -267,21 +266,22 @@ export default {
     }
   }
 
-  &__check-item{
+  &__check-item {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
 
-    input{
+    input {
       position: absolute;
       opacity: 0;
       cursor: pointer;
 
-      &:checked{
-        & ~ label{
+      &:checked {
+        & ~ label {
           background: var(--main);
-          &, *{
+          &,
+          * {
             color: var(--txt);
           }
         }
@@ -289,7 +289,7 @@ export default {
     }
   }
 
-  &__check-label{
+  &__check-label {
     width: 100%;
     height: 100%;
     display: flex;
@@ -300,8 +300,7 @@ export default {
     border-radius: $defValpx / 2;
     padding: $defValpx;
 
-    span{
-
+    span {
     }
   }
 
