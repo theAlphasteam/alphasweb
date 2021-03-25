@@ -68,7 +68,14 @@
             </ul>
           </header>
           <div class="form glass glass--bg pad--2">
-            <form name="main-form" action="POST" data-netlify="true">
+            <form
+              name="main-form"
+              id="main-form"
+              action="/"
+              method="POST"
+              data-netlify="true"
+              @submit.prevent="processForm"
+            >
               <input type="hidden" name="form-name" value="main-form" />
               <h1 class="mb--3 txt--h">Contact Form</h1>
               <div class="form__wrapper grid grid--1-1">
@@ -132,12 +139,7 @@
                 </div>
               </div>
               <div class="form__action-cont mt--2">
-                <button
-                  class="cta cta--main-gradient"
-                  @click.prevent="submitForm"
-                >
-                  Send a Message
-                </button>
+                <button class="cta cta--main-gradient">Send a Message</button>
               </div>
             </form>
           </div>
@@ -155,8 +157,28 @@ export default {
     };
   },
   methods: {
-    submitForm(e) {
-      console.log(e);
+    // submitForm(e) {},
+    processForm(e) {
+      let form = e.target;
+      console.log(e.target);
+      this.ContactFormData = new FormData(form);
+      console.log(this.ContactFormData);
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          // 'Accept': 'application/json'
+        },
+        // body: this.ContactFormData
+        body: new URLSearchParams(this.ContactFormData).toString()
+      })
+      .then(()=>{
+        console.log("Form submitted")
+      })
+      .catch(err => {
+        console.log(err);
+      })
     },
   },
 };
@@ -279,10 +301,10 @@ export default {
 
       &:checked {
         & ~ label {
-          background: var(--main);
+          border-color: var(--main);
           &,
           * {
-            color: var(--txt);
+            color: var(--main);
           }
         }
       }
@@ -296,9 +318,10 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 2px solid var(--main);
+    border: 2px solid transparent;
     border-radius: $defValpx / 2;
     padding: $defValpx;
+    background: var(--bg-2);
 
     span {
     }
