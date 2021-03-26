@@ -110,6 +110,7 @@ html{
 .max-width {
   @each $var in map-get($map: $breakpoints, $key: "widths") {
     &--#{$var} {
+      width: 100%;
       max-width: $var + px;
       margin: auto;
     }

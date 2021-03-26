@@ -64,6 +64,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   background: var(--bg-2);
+  overflow-x: hidden;
 
   // apply the following styles to all elements under #app
   * {

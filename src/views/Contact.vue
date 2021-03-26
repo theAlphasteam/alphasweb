@@ -71,12 +71,12 @@
             <form
               name="main-form"
               id="main-form"
-              action="/"
+              action="https://formspree.io/f/xoqyanyy"
               method="POST"
               data-netlify="true"
               @submit.prevent="processForm"
             >
-              <input type="hidden" name="form-name" value="main-form" />
+              <!-- <input type="hidden" name="form-name" value="main-form" /> -->
               <h1 class="mb--3 txt--h">Contact Form</h1>
               <div class="form__wrapper grid grid--1-1">
                 <div class="form__inputs-cont">
@@ -84,31 +84,33 @@
                   <div tabindex="1" class="form__input-item">
                     <input
                       id="name"
+                      name="name"
                       type="text"
                       placeholder="John Moe"
                       required
                     />
                   </div>
-                  <label class="form__input-label" for="Mail">Mail</label>
+                  <label class="form__input-label" for="mail">Mail</label>
                   <div class="form__input-item">
                     <input
-                      id="Mail"
+                      id="mail"
+                      name="mail"
                       type="email"
                       placeholder="johnmoe@gmail.com"
                       required
                     />
                   </div>
-                  <label class="form__input-label" for="Phone">Phone</label>
+                  <label class="form__input-label" for="phone">Phone</label>
                   <div class="form__input-item">
-                    <input id="Phone" type="text" placeholder="+234808080808" />
+                    <input id="phone"  type="text" placeholder="+234808080808" />
                   </div>
                 </div>
                 <div class="form__message-cont">
-                  <label class="form__input-label" for="Message">Message</label>
+                  <label class="form__input-label" for="message">Message</label>
                   <textarea
                     class="pad--2"
-                    name=""
-                    id="Message"
+                    name="message"
+                    id="message"
                     cols="30"
                     rows="10"
                     placeholder="Your message here"
@@ -162,16 +164,17 @@ export default {
       let form = e.target;
       console.log(e.target);
       this.ContactFormData = new FormData(form);
+      // let urlencodedForm = encodeURIComponent(this.ContactFormData);
       console.log(this.ContactFormData);
 
       fetch(form.action, {
         method: 'POST',
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          // 'Accept': 'application/json'
+          // "Content-Type": "application/x-www-form-urlencoded",
+          'Accept': 'application/json'
         },
-        // body: this.ContactFormData
-        body: new URLSearchParams(this.ContactFormData).toString()
+        body: this.ContactFormData
+        // body: new URLSearchParams(this.ContactFormData).toString()
       })
       .then(()=>{
         console.log("Form submitted")
@@ -232,6 +235,7 @@ export default {
   flex-direction: row;
   gap: $defValEm;
   flex-wrap: wrap;
+  width: 100%;
 
   &__li {
     list-style-type: none;
