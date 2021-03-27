@@ -269,6 +269,7 @@ html{
 // global layouts
 
 .site-sect {
+  position: relative;
   padding-left: $defValEm * 2;
   padding-right: $defValEm * 2;
   width: 100%;
