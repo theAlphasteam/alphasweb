@@ -345,6 +345,7 @@ html{
   }
 }
 
+
 .cta {
   padding: $defValpx $defValpx * 2;
   border-radius: $defValpx / 1.5;
@@ -353,14 +354,7 @@ html{
   // background: var(--bg);
   font-family: $header-font;
   cursor: pointer;
-
-  &:hover{
-    transform: scale(1.12);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
+  @include hover-scale();
 
   @each $colorkey, $value in $colorListObj {
     &--#{$colorkey} {
