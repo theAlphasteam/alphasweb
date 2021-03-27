@@ -41,7 +41,7 @@ export default {
   z-index: 6;
 
   @supports(position: sticky){
-    position: sticky;
+    // position: sticky;
   }
 
   &__wrapper {
