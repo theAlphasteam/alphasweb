@@ -1,42 +1,42 @@
 <template>
-  <section class="site-sect">
-    <div class="site-sect__wrapper max-width--1120">
-      <!-- <div class="bg bg--page">
-        <div class="bg__img-cont overlay overlay--bg img-cont">
-          <img src="@/assets/img/bg/a-pic-of-big-smallies.jpeg" alt="" />
-        </div>
-      </div> -->
+  <main class="">
+    <section class="site-sect">
+      <div class="site-sect__wrapper max-width--1120">
+        <!-- <div class="bg bg--page">
+          <div class="bg__img-cont overlay overlay--bg img-cont">
+            <img src="@/assets/img/bg/a-pic-of-big-smallies.jpeg" alt="" />
+          </div>
+        </div> -->
 
-      <header class="site-sect__header home__hero hero pad--y-6em">
-        <div class="grid grid--7-5">
-          <div data-wa-trans="wrapper" class="wrapper">
-            <!-- <span class="heading">Hello,</span> -->
-            <h1 data-wa-trans="child" class="heading heading--lg hero__caption bg--txt bg--txt-main-gradient">
-              We're the team in love with all things web and design.
-            </h1>
-            <p data-wa-trans="child" class="txt--p txt-1 mb--2">
-              Our job is to bring out the best part of the web for you, us and everyone else!
-            </p>
-            <div data-wa-trans="child" class="action-cont">
-              <router-link to="/contact">
-                <button class="cta cta--main-gradient">Get in touch</button>
-              </router-link>
+        <header class="site-sect__header home__hero hero pad--y-8em">
+          <div class="grid grid--7-5">
+            <div data-wa-trans="wrapper" class="wrapper">
+              <!-- <span class="heading">Hello,</span> -->
+              <h1 data-wa-trans="child" class="heading heading--lg hero__caption bg--txt bg--txt-main-gradient">
+                We're the team in love with all things web and design.
+              </h1>
+              <p data-wa-trans="child" class="txt--p txt-1 mb--2">
+                Our job is to bring out the best part of the web for you, us and everyone else!
+              </p>
+              <div data-wa-trans="child" class="action-cont">
+                <router-link to="/contact">
+                  <button class="cta cta--main-gradient">Get in touch</button>
+                </router-link>
+              </div>
+            </div>
+            <div data-wa-trans="child" class="hero-media grid__first max-width--420">
+              <div class="hero-media__img img-cont _1">
+                <img src="../assets/img/1024-editor.png" alt="A peeling orange" title="Code editor">
+              </div>
+              <div class="hero-media__img img-cont _2">
+                <img src="../assets/img/batman.png" alt="The batman" title="The batman">
+              </div>
             </div>
           </div>
-          <div data-wa-trans="child" class="hero-media grid__first max-width--420">
-            <div class="hero-media__img img-cont _1">
-              <img src="../assets/img/1024-editor.png" alt="A peeling orange" title="Code editor">
-            </div>
-            <div class="hero-media__img img-cont _2">
-              <img src="../assets/img/batman.png" alt="The batman" title="The batman">
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
-
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  </section>
+        </header>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
