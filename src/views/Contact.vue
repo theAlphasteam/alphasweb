@@ -1,6 +1,6 @@
 <template>
   <main class="">
-    <section class="site-sect hero pad--y-7em">
+    <section class="site-sect hero pad--t-7em">
       <div class="site-sect__wrapper max-width--1120">
         <div class="main-cont">
           <div class="form-cont glass glass--bg pad--2em m--2">
@@ -107,15 +107,21 @@
       </div>
     </section>
 
-    <div class="notif-bubble glass glass--bg">
+    <!-- <div class="notif-bubble glass glass--bg">
       <h3>{{notifMessage.status}}</h3>
       <p>{{notifMessage.message}}</p>
-    </div>
+    </div> -->
+
+    <notif-bubble :bubbleData="notifMessage" ></notif-bubble>
+
   </main>
 </template>
 
 <script>
+import NotifBubble from '../components/NotifBubble.vue';
+
   export default {
+
     data() {
       return {
         contactFormData: {},
@@ -125,6 +131,11 @@
         }
       };
     },
+
+    components: {
+      NotifBubble
+    },
+
     methods: {
       submitForm(form, data) {
         fetch(form.action, {
@@ -171,15 +182,7 @@
 
       },
       notify(data){
-        // let {status, message} = data;
-        let notifBubble = document.querySelector(".notif-bubble");
-
         this.notifMessage = data;
-
-        notifBubble.classList.add("active");
-        setTimeout(()=>{
-          notifBubble.classList.remove("active")
-        }, 6000)
       }
     },
   };
