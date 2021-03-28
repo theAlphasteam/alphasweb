@@ -106,6 +106,11 @@
         </div>
       </div>
     </section>
+
+    <div class="notif-bubble glass glass--bg">
+      <h3>{{notifMessage.status}}</h3>
+      <p>{{notifMessage.message}}</p>
+    </div>
   </main>
 </template>
 
@@ -114,6 +119,10 @@
     data() {
       return {
         contactFormData: {},
+        notifMessage: {
+          status : "Ok",
+          message : "Nothing here yet.."
+        }
       };
     },
     methods: {
@@ -127,11 +136,27 @@
             body: data
             // body: new URLSearchParams(this.contactFormData).toString()
           })
-          .then(() => {
-            console.log("Form submitted")
+          .then((res) => {
+            console.log("Form submitted");
+            form.reset();
+            console.log(res)
+
+            this.notify(({
+              status: res.ok ? "Ok" : res.status,
+              message: `
+              Thanks for filling the form, we'll get back to you as soon as possible.
+
+              Stay Awesome! ✨✨
+              `
+              }))
+            return res.json();
+          })
+          .then(data => {
+            console.log(data)
           })
           .catch(err => {
             console.log(err);
+            this.notify(({status: "Error", message: err}))
           })
 
       },
@@ -145,6 +170,17 @@
         this.submitForm(form, this.contactFormData)
 
       },
+      notify(data){
+        // let {status, message} = data;
+        let notifBubble = document.querySelector(".notif-bubble");
+
+        this.notifMessage = data;
+
+        notifBubble.classList.add("active");
+        setTimeout(()=>{
+          notifBubble.classList.remove("active")
+        }, 6000)
+      }
     },
   };
 </script>
@@ -349,6 +385,27 @@
     @media screen and (min-width: 768px){
       // background: var(--bg);
       box-shadow: none;
+    }
+  }
+
+  .notif-bubble{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    min-width: 120px;
+    min-height: 40px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.5em;
+    gap: $defValEm;
+    border-radius: $defValpx;
+
+    &.active{
+      transform: translate(-50%, -100%);
     }
   }
 </style>
