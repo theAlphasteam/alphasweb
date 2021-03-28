@@ -146,6 +146,14 @@ html{
       padding-top: $defValEm * $var;
       padding-bottom: $defValEm * $var;
     }
+
+    &--t-#{$var}em {
+      padding-top: $defValEm * $var;
+    }
+
+    &--b-#{$var}em {
+      padding-bottom: $defValEm * $var;
+    }
   }
 }
 
