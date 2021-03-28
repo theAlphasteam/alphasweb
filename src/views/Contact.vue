@@ -77,19 +77,19 @@
                   <div class="form__wrapper mt--1">
                     <div class="form__inputs-cont check-group">
                       <div class="form__input-item form__check-item">
-                        <input type="checkbox" name="service" id="web-design" />
+                        <input type="checkbox" name="service" value="web-design" id="web-design" />
                         <label for="web-design" class="form__check-label">
                           <span> Web Design </span>
                         </label>
                       </div>
                       <div class="form__input-item form__check-item">
-                        <input type="checkbox" name="service" id="web-dev" />
+                        <input type="checkbox" name="service" value="web-dev" id="web-dev" />
                         <label for="web-dev" class="form__check-label">
                           <span> Web Developement </span>
                         </label>
                       </div>
                       <div class="form__input-item form__check-item">
-                        <input type="checkbox" name="service" id="logo-design" />
+                        <input type="checkbox" name="service" value="logo-design" id="logo-design" />
                         <label for="logo-design" class="form__check-label">
                           <span> Logo Design </span>
                         </label>
