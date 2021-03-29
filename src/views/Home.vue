@@ -66,12 +66,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 420px;
+  min-height: 280px;
   width: 100%;
 
   &__img{
     position: absolute;
-    top: - $defValEm;
+    top: - $defValEm * 4;
     left: 0;
     animation: float 5s ease-in-out alternate-reverse infinite;
 
@@ -82,7 +82,7 @@ export default {
     }
 
     &._2{
-      top: 40%;
+      top: 28%;
       left: 60%;
       width: 60%;
     }

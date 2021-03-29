@@ -75,6 +75,7 @@
                     </div>
                   </div>
                   <div class="form__wrapper mt--1">
+                    <label class="form__input-label" for="">What services are you interested in?</label>
                     <div class="form__inputs-cont check-group">
                       <div class="form__input-item form__check-item">
                         <input type="checkbox" name="service" value="web-design" id="web-design" />
@@ -236,6 +237,7 @@ import NotifBubble from '../components/NotifBubble.vue';
         padding: 0;
         background: none;
         box-shadow: none;
+        border-color: transparent;
     }
 
     @media screen and (min-width: 768px){
@@ -304,6 +306,8 @@ import NotifBubble from '../components/NotifBubble.vue';
       &.check-group {
         display: flex;
         gap: $defValpx;
+        flex-direcetion: row;
+        flex-wrap: wrap;
       }
     }
 

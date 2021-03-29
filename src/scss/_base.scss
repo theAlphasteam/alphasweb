@@ -44,35 +44,35 @@ li{
 	&--lg {
 		font-size: 72px;
 
-		@supports (font-size: clamp(48px, 5vw, 80px)) {
-			font-size: clamp(48px, 5vw, 80px);
+		@supports (font-size: clamp(40px, 5vw, 80px)) {
+			font-size: clamp(40px, 5vw, 80px);
 		}
 	}
 }
 
 $fontSizes: (
     "1": (
-        "min":14px,
+        "min":11px,
         "max": 22px
     ),
     "2": (
-        "min":22px,
+        "min":18px,
         "max": 32px
     ),
     "3": (
-        "min":32px,
+        "min":26px,
         "max": 40px
     ),
     "4": (
-        "min":40px,
+        "min":38px,
         "max": 52px
     ),
     "5": (
-        "min":52px,
+        "min":46px,
         "max": 64px
     ),
     "6": (
-        "min":64px,
+        "min":52px,
         "max": 78px
     ),
 );
