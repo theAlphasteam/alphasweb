@@ -1,3 +1,9 @@
+////
+/// base
+/// @group base
+/// @author miracleio
+////
+
 // apply to all elements in site
 *{
     margin: 0;
@@ -29,27 +35,6 @@ li{
 
 //type
 
-@mixin heading($size) {
-    font-family: $header-font;
-}
-
-.heading {
-    font-family: $header-font;
-    font-weight: 900;
-
-    & + p{
-        margin-top: $defValpx;
-    }
-
-	&--lg {
-		font-size: 72px;
-
-		@supports (font-size: clamp(40px, 5vw, 80px)) {
-			font-size: clamp(40px, 5vw, 80px);
-		}
-	}
-}
-
 $fontSizes: (
     "1": (
         "min":11px,
@@ -78,6 +63,37 @@ $fontSizes: (
 );
 
 
+/// Heading mixin - Set font properties
+
+@mixin heading($sizeValue: 1) {
+    font-family: $header-font;
+}
+
+/// Heading class
+/// @example html - Apply .heading class to element with --lg modifier for large font-size
+///   <element class="heading heading--lg" />
+///
+.heading {
+    font-family: $header-font;
+    font-weight: 900;
+
+    & + p{
+        margin-top: $defValEm / 3;
+    }
+
+	&--lg {
+		font-size: 72px;
+
+		@supports (font-size: clamp(40px, 5vw, 80px)) {
+			font-size: clamp(40px, 5vw, 80px);
+		}
+	}
+}
+
+
+/// text class
+/// @example html - Apply .txt class to element with --p modifier to apply $regular-font with $size : 1
+///   <element class="txt--p txt-1" />
 .txt{
     &--p{
         font-family: $regular-font;

@@ -1,18 +1,31 @@
+////
+/// Utilities
+/// @group utilities
+/// @author miracleio
+////
+
 // fonts
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 // variables
+/// default value in px(pixels)
 $defValpx: 10px;
+
+/// default value in em units
 $defValEm: 1em;
 
 // type
+/// Font values for headers
 $header-font: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+/// Font values for paragraphs and other texts
 $regular-font: "Lato", "Open Sans", -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
   sans-serif;
 
 // layout
+/// Default Breakpoints map
 $breakpoints: (
   "widths": (
     420,
@@ -22,8 +35,14 @@ $breakpoints: (
 );
 
 // colors
+/// Default blue
+/// <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect fill='#2087ea' x='0' y='0' width='100%' height='100%'/></svg>
 $blue: #2087ea;
+/// Default purple
+/// <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect fill='#4810ff' x='0' y='0' width='100%' height='100%'/></svg>
 $purple: #4810ff;
+/// Default text color
+/// <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect fill='#fff' x='0' y='0' width='100%' height='100%'/></svg>
 $txt: #fff;
 
 $main: #2087ea;
