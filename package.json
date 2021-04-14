@@ -29,5 +29,23 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2"
-  }
+  },
+  "description": "Welcome to the official repo for the alphasweb site.",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theAlphasteam/alphasweb.git"
+  },
+  "keywords": [
+    "alphasweb",
+    "web",
+    "frontend",
+    "portfolio"
+  ],
+  "author": "alphasweb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theAlphasteam/alphasweb/issues"
+  },
+  "homepage": "https://github.com/theAlphasteam/alphasweb#readme"
 }
