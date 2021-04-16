@@ -424,6 +424,17 @@ html{
       fill: var(--dark);
     }
   }
+
+  &--stroke{
+    svg{
+      *{
+        fill: none;
+        stroke: var(--dark);
+        stroke-width: 3;
+      }
+    }
+  }
+
   &--sm{
     svg{
       width: 16px;
