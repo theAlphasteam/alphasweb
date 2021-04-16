@@ -1,5 +1,5 @@
 <template>
-    <div class="bubble glass glass--bg" :class="{active : active}">
+    <div class="bubble glass glass--bg" :class="{active : active, error : bubbleData.status.toLowerCase() == 'error'}">
         <h3>{{bubbleData.status}}</h3>
         <p>{{bubbleData.message}}</p>
     </div>
@@ -52,6 +52,11 @@
 
         &.active {
             transform: translate(-50%, -100%);
+        }
+
+        &.error {
+            background: var(--warning-trans);
+            border-color: var(--warning-trans-blur);
         }
     }
 </style>
