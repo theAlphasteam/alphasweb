@@ -1,37 +1,59 @@
 <template>
-    <article class="project glass glass--bg pad--2">
-        <header>
-            <h3 class="txt--h txt-1">
-                <a :href="project.link" v-if="project.link" target="_blank" rel="noopener noreferrer">
-                    <span>{{ project.name }}</span>
+    <article class="project glass glass--bg pad--2" :class="{isLoading: !isLoaded}">
+        <div class="project__wrapper">
+            <header>
+                <h3 class="project__heading txt--h txt-1">
+                    <a :href="project.link" v-if="project.link" target="_blank" rel="noopener noreferrer">
+                        <span class="txt--h">{{ project.name }}</span>
 
-                    <span class="icon icon--sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -3 24 24" width="24" height="24"
-                            preserveAspectRatio="xMinYMin" class="jam jam-link">
-                            <path
-                                d="M3.19 9.345a.97.97 0 0 1 1.37 0 .966.966 0 0 1 0 1.367l-2.055 2.052a1.932 1.932 0 0 0 0 2.735 1.94 1.94 0 0 0 2.74 0l4.794-4.787a.966.966 0 0 0 0-1.367.966.966 0 0 1 0-1.368.97.97 0 0 1 1.37 0 2.898 2.898 0 0 1 0 4.103l-4.795 4.787a3.879 3.879 0 0 1-5.48 0 3.864 3.864 0 0 1 0-5.47L3.19 9.344zm11.62-.69a.97.97 0 0 1-1.37 0 .966.966 0 0 1 0-1.367l2.055-2.052a1.932 1.932 0 0 0 0-2.735 1.94 1.94 0 0 0-2.74 0L7.962 7.288a.966.966 0 0 0 0 1.367.966.966 0 0 1 0 1.368.97.97 0 0 1-1.37 0 2.898 2.898 0 0 1 0-4.103l4.795-4.787a3.879 3.879 0 0 1 5.48 0 3.864 3.864 0 0 1 0 5.47L14.81 8.656z" />
-                        </svg>
-                    </span>
-                </a>
-                <span v-else>{{ project.name }}</span>
-            </h3>
-            <p class="txt--p">{{ project.description }}</p>
+                        <span class="icon icon--stroke icon--sm pad--1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-external-link">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </span>
+                    </a>
+                    <span v-else>{{ project.name }}</span>
+                </h3>
+                <p class="project__description txt--p">{{ project.description }}</p>
 
-            <div class="project__stats mt--1">
-                <span>{{ project.collaborators.length }} collaborators</span>
+                <div class="project__stats mt--1">
+                    <span>{{ project.collaborators.length }} collaborators</span>
+                </div>
+            </header>
+
+            <div class="project__action-cont">
+                <ul class="project__members">
+                    <template v-for="(member, index) in project.collaborators" :key="member.id">
+                        <li class="project__member" v-if="index <= 1" v-bind:title="member.name"></li>
+                    </template>
+
+                    <span v-if="project.collaborators.length - 2 > 0">+{{ project.collaborators.length - 2 }}
+                        more</span>
+                </ul>
+
+                <button class="project__cta cta cta--main-gradient">View more</button>
             </div>
-        </header>
+        </div>
 
-        <div class="project__action-cont">
-            <ul class="project__members">
-                <template v-for="(member, index) in project.collaborators" :key="member.id">
-                    <li class="project__member" v-if="index <= 1" v-bind:title="member.name"></li>
-                </template>
+        <div class="skeleton pad--2" v-if="!isLoaded">
+            <div class="skeleton__group">
+                <div class="skeleton__heading"></div>
+                <div class="skeleton__txt"></div>
+                <div class="skeleton__txt"></div>
+            </div>
 
-                <span v-if="project.collaborators.length - 2 > 0">+{{ project.collaborators.length - 2 }} more</span>
-            </ul>
+            <div class="skeleton__group row">
+                <div class="skeleton__circles-cont">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
 
-            <button class="cta cta--main-gradient">View more</button>
+                <div class="skeleton__btn"></div>
+            </div>
         </div>
     </article>
 </template>
@@ -39,11 +61,22 @@
 <script>
     export default {
         name: "ProjectCard",
-        props: ['project'],
+        props: ['project', 'isLoaded'],
         data() {
             return {
-
+                projectData: {
+                }
             }
+        },
+        methods: {
+
+        },
+        mounted() {
+            // this.getData()
+            this.$emit('IsMounted', true);
+        },
+        watch: {
+
         }
     };
 </script>
@@ -56,9 +89,14 @@
         min-height: 200px;
         border-radius: $defValpx;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        position: relative;
+
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
 
         &__stats {
             opacity: 0.4;
@@ -75,7 +113,7 @@
             align-items: center;
 
             :nth-child(1) {
-                left: 0;
+                left: 0 !important;
             }
         }
 
@@ -88,6 +126,73 @@
             border: 1px solid var(--dark);
 
             left: -$defValpx;
+        }
+
+        &.isLoading {
+            .project {
+                &__wrapper {
+                    opacity: 0;
+                }
+            }
+        }
+
+    }
+
+    .skeleton {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: pulse 1s ease-in infinite alternate;
+        @extend .project;
+
+        &__heading,
+        &__txt,
+        &__btn {
+            min-height: 20px;
+            width: 80%;
+            background: var(--bg-2);
+            margin-bottom: $defValpx;
+            border-radius: $defValpx / 2;
+        }
+
+        &__heading {
+            height: 30px;
+            width: 40%;
+        }
+
+        &__btn {
+            width: 120px;
+            height: 40px;
+        }
+
+        &__circles-cont {
+            @extend .project__members;
+
+            .circle {
+                @extend .project__member;
+                background: var(--bg-2);
+                border-color: var(--bg);
+            }
+        }
+
+        &__group {
+
+            // margin-top: $defValpx * 2;
+            &.row {
+                @extend .project__action-cont;
+            }
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 0.5;
+        }
+
+        100% {
+            opacity: 1;
         }
     }
 </style>
