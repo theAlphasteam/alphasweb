@@ -85,8 +85,8 @@
         projects: [{
             id: 1,
             name: 'alphasweb',
-            link: 'http://alphasweb.netlify.app',
-            data_url: "http://api.github.com/repos/thealphasteam/alphasweb",
+            link: 'https://alphasweb.netlify.app',
+            data_url: "https://api.github.com/repos/thealphasteam/alphasweb",
             description: 'alphasweb official portfolio site',
             collaborators: [{
                 id: 1,
@@ -109,8 +109,8 @@
           {
             id: 2,
             name: 'Oshare',
-            link: 'http://alphasweb.netlify.app',
-            data_url: "http://api.github.com/repos/miracleonyenma/oshare",
+            link: 'https://alphasweb.netlify.app',
+            data_url: "https://api.github.com/repos/miracleonyenma/oshare",
             description: 'Simple file sharing app built with VueJS',
             collaborators: [{
                 id: 1,
