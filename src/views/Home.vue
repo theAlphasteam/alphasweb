@@ -150,18 +150,23 @@
       // #2 set project data and localStorage data to API data:
       //  if API is available
 
-      async fetchData() {
+      async fetchData(dataObj, dataStatus) {
+
+        let {data, localName} = dataObj;
+
         let isUpdated = false; // before fetch data is not updated
         let isStored = false; // set to false before attempting to get localStorage data
 
+        console.log(data)
+        console.log(dataStatus)
         // clear contents of projectsStatus
-        this.projectsStatus = []
+        // dataStatus = []
 
         // try fetching local data from localStorage
-        let localProjectsData = this.getData('projects');
+        let localProjectsData = this.getData(localName);
         if(localProjectsData){ //if localStorage is not null || undefined || "" i.e contains data 🚧 still needs validation!! 🚧
           isStored = true; // data has been stored previously
-          this.projects = localProjectsData // #1 set all projects data to localStorage data
+          data = localProjectsData // #1 set all projects data to localStorage data
         }
 
         // console.log('isStored: ', isStored);
@@ -169,7 +174,7 @@
         try {
           // map projects data to Promise in order to run async functions and resolve at once
           await Promise.all(
-            this.projects.map(async (project) => {
+            data.map(async (project) => {
               let newID; //new ID
               let randomID = Math.floor(Math.random(999) * 1000000); //random integer
               try {
@@ -192,7 +197,7 @@
 
                 // update projectsStatus with newID, status(update status i.e if updatedfrom API), local
                 // local is false because data is from API not localStorage
-                this.populateStatus(newID, true, false);
+                dataStatus = this.populateStatus(dataStatus, {id: newID, updated: true, local: false});
 
                 isUpdated = true; // data has been updated from API
 
@@ -219,7 +224,7 @@
                 // update projectsStatus with newID, status(update status i.e if updatedfrom API), local
                 // status is false because data has not been updated from API
                 // local is true because data is from localStorage not API
-                  this.populateStatus(newID, false, true); //
+                dataStatus = this.populateStatus(dataStatus, {id: newID, updated: false, local: true}); //
 
                 }
 
@@ -244,7 +249,11 @@
           isUpdated = false; // data has not been updated from API
         }
 
-        return isUpdated
+        return {
+          isUpdated,
+          newData : data,
+          newStatus : dataStatus
+        }
         // let newID;
         // fetch(project.data_url)
         //   .then(res => res.json())
@@ -267,22 +276,25 @@
 
       },
       // function to populate projectStatus with stats
-      populateStatus(id, status, local) {
+      populateStatus(statusTarget, statusObj) {
+
+        let {id} = statusObj;
+        console.trace(statusTarget)
 
         // console.log(id, status, local);
 
         try { // check if such obj exists and update
 
           // generate projectStatus data with arguments
-          let statusObj = {
-            id: id,
-            status: status,
-            local: local
-          };
+          // let statusObj = {
+          //   id: id,
+          //   status: status,
+          //   local: local
+          // };
 
           // get Index of in projectsStatus by ID
           // to see if such project status exists already
-          let statusObjIndex = this.projectsStatus.findIndex(statusObj => {
+          let statusObjIndex = statusTarget.findIndex(statusObj => {
             return statusObj.id === id
           });
 
@@ -291,24 +303,26 @@
 
           if (statusObjIndex == -1) { // if no data exists on projectsStatus array:
 
-            this.projectsStatus.push(statusObj); // push generated data to array
+            statusTarget.push(statusObj); // push generated data to array
 
-            statusObjIndex = this.projectsStatus.indexOf(statusObj) // get index of newly pushed data
+            statusObjIndex = statusTarget.indexOf(statusObj) // get index of newly pushed data
 
-            // console.log(`pushed at ${statusObjIndex}`, this.projectsStatus[statusObjIndex].id);
+            // console.log(`pushed at ${statusObjIndex}`, statusTarget[statusObjIndex].id);
 
           } else { // if data with argument ID exists already:
 
-            this.projectsStatus[statusObjIndex] = statusObj; // replace with generated data
+            statusTarget[statusObjIndex] = statusObj; // replace with generated data
 
-            // console.log("updated: ", this.projectsStatus[statusObjIndex].id);
+            // console.log("updated: ", statusTarget[statusObjIndex].id);
           }
 
-          // console.log(statusObjIndex, this.projectsStatus[statusObjIndex]);
+          // console.log(statusObjIndex, statusTarget[statusObjIndex]);
 
         } catch (error) { // catch error
           console.log('populate error: ', error)
         }
+
+        return statusTarget;
       },
       saveData(data) {
         localStorage.setItem("projectData", JSON.stringify(data))
@@ -345,8 +359,12 @@
       }
     },
     mounted() {
-      this.fetchData().then(() => {
-        console.log(this.projects)
+      this.fetchData({data: this.projects, localName: 'projects'}, this.projectsStatus).then((data) => {
+        console.log(this.projects);
+
+        this.projects = data.newData;
+        this.projectsStatus = data.newStatus;
+
         localStorage.setItem('projects', JSON.stringify(this.projects))
         console.log(this.parseJSON(localStorage.getItem('projects')))
       })
