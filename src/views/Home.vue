@@ -47,8 +47,7 @@
         </header>
         <div class="projects__gallery grid">
           <template v-for="project in projects" :key="project.id">
-            <project-card @hook:mounted="alert('mounted')" :project="project" :isLoaded="projectLoaded"
-              :id="project.id" />
+            <project-card :project="project" :isLoaded="projectLoaded" :id="project.id" @update-project="projects = updateData(projects, $event)" />
           </template>
         </div>
       </div>
@@ -143,6 +142,23 @@
       }
     },
     methods: {
+      updateData(targetData, data){
+        let dataID = data.id;
+
+        let targetObjIndex = targetData.findIndex(obj => {
+          return obj.id === dataID;
+        });
+
+        let targetObj = targetData[targetObjIndex];
+        targetObj = data;
+
+        targetData[targetObjIndex] = targetObj;
+
+        let newData = targetData;
+
+        return newData
+      },
+
       // try to fetch project data from
       // localstorage and API
       // #1 set project data to locasStorage data:
@@ -279,7 +295,7 @@
       populateStatus(statusTarget, statusObj) {
 
         let {id} = statusObj;
-        console.trace(statusTarget)
+        // console.trace(statusTarget)
 
         // console.log(id, status, local);
 
@@ -347,7 +363,7 @@
         deep: true,
 
         handler() {
-          this.projectLoaded = true
+          localStorage.setItem('projects', JSON.stringify(this.projects));
         }
       },
       projectsStatus: {

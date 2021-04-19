@@ -65,18 +65,46 @@
         data() {
             return {
                 projectData: {
+                },
+                fetchedData: {
+
                 }
             }
         },
         methods: {
-
+            async getContributors(url){
+                let contributors = {};
+                try {
+                    console.log(url)
+                    let res = await fetch(url);
+                    contributors = await res.json();
+                    console.log(contributors);
+                } catch (error) {
+                    console.log(contributors)
+                    contributors = null;
+                    console.error('Unable to fetch contributors data: ', error)
+                }
+                return contributors
+            }
         },
         mounted() {
             // this.getData()
             this.$emit('IsMounted', true);
+            this.projectData = this.project;
+            this.fetchedData = this.project.fetched_data;
+
+            this.getContributors(this.fetchedData.contributors_url).then(data => {
+                console.log(data);
+                data ? this.projectData.collaborators = data : console.warn('No contributors data recieved for: ', this.projectData.name);
+            })
         },
         watch: {
-
+            projectData: {
+                deep: true,
+                handler(){
+                    this.$emit('updateProject', this.projectData)
+                }
+            }
         }
     };
 </script>
